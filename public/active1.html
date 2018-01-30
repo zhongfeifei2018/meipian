@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="./css/sm.min.css">
+	<script type='text/javascript' src='./js/zepto.min.js' charset='utf-8'></script>
+	<script type="text/javascript">
+		$.config = {
+		    autoInit: true
+		  }
+	</script>
+	<script type="text/javascript" src="./js/cordova.js"></script>
+	<script type='text/javascript' src='./js/sm.min.js' charset='utf-8'></script>
+    <script type="text/javascript" src="./js/total.js"></script>
+	<title></title>
+</head>
+<body>
+  	<div class="page-group">
+     	<div class="page page-current" id='router'>
+        	<div class="editor">
+          	 	<div class="back">返回</div>
+          	 	<div class="editor_text">编辑</div>
+              	<div class="complete">完成</div>
+            </div>
+            
+         	<div class="cover_content">
+		        <div class="editor_face">
+		            <div class="my_img"><img src="./images/2.jpg"></div>
+		            <div class="title_text"><a href="./title.html">点击设置标题</a></div>
+		            <div class="editor_page"><a href="./cover.html">编辑封面</a></div>
+		        </div>
+	            <div class="add_content">
+	           	   <div class="add_1">
+	              	   <p class="add">+</p>
+	                   <div class="add_type clearfix">
+	                      <div class="add_type_div"><a href="./add_new_item.html">文字</a></div>
+	                      <div class="add_type_div add_type_img" onclick="openPhotoAlbum()">图片</div>
+	                   </div>
+	              </div>
+	         </div>
+          </div>
+          <div class="loadding">加载中</div>
+      </div>
+    </div>
+      <script type="text/javascript">
+        
+     //打开相册
+        var pickTag = "pick_tag"; 
+       
+     	function openPhotoAlbum(this){
+     	    Cordova.exec(null,null, "Interactive", "openCameraOrPick", [pickTag]);	 
+            
+        };
+        //原生调js，选择相册后的图片路径
+		function getPickImg(res){
+		   for(var j = 0 ; len = res.length,j < len ; j++){
+		   	 var html = '';
+		   	  html += '<div class="add_content_2">'+
+	           '<div class="add_content_1 clearfix">'+
+	               '<div class="add_content_1_left">×</div>' +
+	               '<div class="add_content_1_img">'+
+	                  '<img src="'+res[j].pick_imgs_path+'">'+
+	               '</div>'+
+	               '<a href="/new/editor_text.html">'+
+	                  '<div class="add_content_1_text">点击添加文字</div>'+
+	               '</a>'+
+	           '</div>'+
+	           '<div class="add_1">'+
+	              '<p class="add">+</p>'+
+	              '<div class="add_type clearfix">'+
+	                 '<div class="add_type_div"><a href="/new/add_new_item.html">文字</a></div>'+
+	                 '<div class="add_type_div" onclick="openPhotoAlbum()">图片</div>'+
+	              '</div>'+
+	            '</div>'+
+              '</div>';
+             //var imgIndex = localStorage.getItem('i', i);
+            
+	         $(".add_content").append(html);
+		   }
+		};
+
+     </script>
+</body>
+</html>

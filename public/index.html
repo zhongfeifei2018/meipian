@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+  <title>美篇</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/sm.min.css">
+  <link rel="stylesheet" href="./css/meipian.css">
+  <link rel="stylesheet" href="./swiper/css/swiper.min.css">
+  <link rel="stylesheet" href="./css/myPage/myPage.css">
+  <link rel="stylesheet" href="./css/details/details.css">
+</head>
+<style>
+  .swiper-container {
+    width: 100%;
+    height: 100px;
+  }
+
+  .swiper-slide {
+    background-color: blueviolet
+  }
+</style>
+
+<body>
+  <div class="page-group">
+    <div class="page" id="index" style="background-color: white;">
+      <header class="bar bar-nav">
+        <!-- <h1 class='title'>下拉刷新</h1> -->
+        <a class="button button-link button-nav pull-left getBackToPage">
+          <span style="padding-left: 10px">
+            美篇
+          </span>
+        </a>
+        <a class="button button-link button-nav pull-right" href="./editor_text.html">
+          <span style="padding-right: 10px">
+            发布
+          </span>
+        </a>
+      </header>
+      <div class="content">
+        <!-- 导航栏 -->
+        <div class="tabShowList" style="position:fixed">
+          <div class="tabShow">
+            <ul class="buttons-tab " id='indexTab'>
+              <li>
+                <a href="#tab1" onclick="tab1Click()" class="tab-link active button">热点</a>
+              </li>
+              <li>
+                <a href="#tab2" onclick="tab2Click()" class="tab-link button">关注</a>
+              </li>
+              <li>
+                <a href="#tab3" onclick="tab3Click()" id="tabflag3" class="tab-link button">身边</a>
+              </li>
+              <li>
+                <a href="#tab4" onclick="tab4Click()" id="tabflag4" class="tab-link button">摄影</a>
+              </li>
+              <li>
+                <a href="#tab5" onclick="tab5Click()" class="tab-link button">美文</a>
+              </li>
+              <li>
+                <a href="#tab6" onclick="tab6Click()" id="tabflag5" class="tab-link button">旅行</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content-block" id="content-block" style="margin: 0;padding: 0; margin-top: 40px;">
+          <div class="tabs">
+            <div id="tab1" class="tab active">
+              <div class="content-block" style="margin: 0;padding: 0" id="content_block_tab">
+                <div class="company_main pull-to-refresh-content infinite-scroll" id="tab1Content" style="overflow: visible;">
+                  <div class="pull-to-refresh-layer" style="position:absolute;top:-34px;">
+                    <div class="preloader"></div>
+                    <div class="pull-to-refresh-arrow"></div>
+                  </div>
+                  <ul class="company_main_cover" id="cardContent">
+                    <!-- 模板渲染 -->
+                  </ul>
+                  <div class="infinite-scroll-preloader" id="preloader_tab2" style="display: flex;justify-content: center;">
+                    <div class="preloader" id="loadMoreloding"></div>
+                    <div id="noMore" style="margin-top:10px;">
+                      <a onclick="clickLoadMore()">没有更多了</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="tab2" class="tab">
+              <div class="contentBlock">
+                <div class="inform">
+                  <span>
+                    <img src="./images/touxiang.jpg" alt=""> 关注别人,第一时间得到他们的专栏更新
+                  </span>
+                </div>
+                <!-- 关注人员列表 -->
+                <div class="personnelList">
+                  <div class="personnel">
+                    <div class="headPortrait">
+                      <img src="./images/5.jpg" alt="">
+                    </div>
+                    <div class="personnelInfo">
+                      <div class="personnelName">
+                        冬天无雪
+                        <span class="sign">签约作者</span>
+                      </div>
+                      <div class="profession">
+                        美篇摄影学
+                      </div>
+                    </div>
+                    <div class="attentionBtn">
+                      <a href="#">关注</a>
+                    </div>
+                  </div>
+                  <div class="personnel">
+                    <div class="headPortrait">
+                      <img src="./images/5.jpg" alt="">
+                    </div>
+                    <div class="personnelInfo">
+                      <div class="personnelName">
+                        冬天无雪
+                      </div>
+                      <div class="profession">
+                        美篇摄影学
+                      </div>
+                    </div>
+                    <div class="attentionBtn">
+                      <a href="#">关注</a>
+                    </div>
+                  </div>
+                  <div class="personnel">
+                    <div class="headPortrait">
+                      <img src="./images/5.jpg" alt="">
+                    </div>
+                    <div class="personnelInfo">
+                      <div class="personnelName">
+                        冬天无雪
+                      </div>
+                      <div class="profession">
+                        美篇摄影学
+                      </div>
+                    </div>
+                    <div class="attentionBtn">
+                      <a href="#">关注</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="tab3" class="tab">
+              <div class="contentBlock">
+                <div class="sideLeft">
+                  <div class="picture">
+                    <img src="./images/timg1.jpg" alt="">
+                  </div>
+                  <div class="text">
+                    <div class="infoImage">
+                      <img src="./images/timg.jpg" alt="">
+                    </div>
+                    <span class="location">
+                      <img src="./images/position.png" alt="" style="width:8px;"> 1.1km
+                    </span>
+                    <p class="contentText">勇敢向前 不再孤单</p>
+                  </div>
+                </div>
+                <div class="sideRight">
+                  <div class="picture">
+                    <img src="./images/timg.jpg" alt="">
+                  </div>
+                  <div class="text">
+                    <div class="infoImage">
+                      <img src="./images/timg.jpg" alt="">
+                    </div>
+                    <span class="location">
+                      <img src="./images/position.png" alt="" style="width:8px;"> 1.1km
+                    </span>
+                    <p class="contentText">勇敢向前 不再孤单</p>
+                  </div>
+                </div>
+                <div class="sideLeft">
+                  <div class="picture">
+                    <img src="./images/timg.jpg" alt="">
+                  </div>
+                  <div class="text">
+                    <div class="infoImage">
+                      <img src="./images/timg.jpg" alt="">
+                    </div>
+                    <span class="location">
+                      <img src="./images/position.png" alt="" style="width:8px;"> 1.1km
+                    </span>
+                    <p class="contentText">勇敢向前 不再孤单</p>
+                  </div>
+                </div>
+                <div class="sideRight">
+                  <div class="picture">
+                    <img src="./images/timg6.jpg" alt="">
+                  </div>
+                  <div class="text">
+                    <div class="infoImage">
+                      <img src="./images/timg.jpg" alt="">
+                    </div>
+                    <span class="location">
+                      <img src="./images/position.png" alt="" style="width:8px;"> 1.1km
+                    </span>
+                    <p class="contentText">勇敢向前 不再孤单</p>
+                  </div>
+                </div>
+                <div class="sideLeft">
+                  <div class="picture">
+                    <img src="./images/timg1.jpg" alt="">
+                  </div>
+                  <div class="text">
+                    <div class="infoImage">
+                      <img src="./images/timg.jpg" alt="">
+                    </div>
+                    <span class="location">
+                      <img src="./images/position.png" alt="" style="width:8px;"> 1.1km
+                    </span>
+                    <p class="contentText">勇敢向前 不再孤单</p>
+                  </div>
+                </div>
+                <div class="sideRight">
+                  <div class="picture">
+                    <img src="./images/timg.jpg" alt="">
+                  </div>
+                  <div class="text">
+                    <div class="infoImage">
+                      <img src="./images/timg.jpg" alt="">
+                    </div>
+                    <span class="location">
+                      <img src="./images/position.png" alt="" style="width:8px;"> 1.1km
+                    </span>
+                    <p class="contentText">勇敢向前 不再孤单</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="tab4" class="tab">
+
+            </div>
+            <div id="tab5" class="tab">
+
+            </div>
+            <div id="tab6" class="tab">
+
+            </div>
+          </div>
+        </div>
+        <!-- 回到顶部按钮 -->
+        <a class="topBack" id="topBack">
+          <img src="./images/topBack.png" alt="">
+        </a>
+      </div>
+      <nav class="bar bar-tab">
+        <a class="tab-item external active">
+          <span class="icon icon-home"></span>
+          <span class="tab-label">发现</span>
+        </a>
+        <a class="tab-item external" href="#">
+          <span class="icon icon-star"></span>
+          <span class="tab-label">收藏</span>
+        </a>
+        <a class="tab-item external" onclick="myPage()">
+          <span class="icon icon-me"></span>
+          <span class="tab-label">我的</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+  <script type='text/javascript' src='./js/zepto.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='./js/sm.min.js' charset='utf-8'></script>
+  <script type="text/javascript" src="./js/total.js"></script>
+  <script type="text/javascript" src="./js/index/index.js"  charset='utf-8'></script>
+  <script src="./swiper/js/swiper.min.js"></script>
+  <script src="./js/myPage/myPage.js" charset='utf-8'></script>
+  <script src="./js/touchslider.js"></script>
+  <script type="text/javascript">
+    $.init();
+    var params = 0;
+    pageIndeLoad(params);
+    $(document).on("pageInit", function (e, pageId, $page) {
+      console.log(pageId);
+      isNeedScroll = true;
+      if (pageId == "index") {
+        pageIndeLoad(2);
+      } else if (pageId == "myPage") {
+        myPageInfo();
+      } else if (pageId == "details") {
+
+      }
+    });
+  </script>
+</body>
+
+</html>
